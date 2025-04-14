@@ -55,6 +55,33 @@ h1 {
     background-color: #0056b3;
 }
 
+.filter-buttons,
+.sub-filter-buttons {
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button,
+.sub-filter-buttons button {
+  padding: 8px 16px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-buttons button:hover,
+.sub-filter-buttons button:hover {
+  background-color: #444;
+}
+
+  
+
 @media (max-width: 768px) {
     .cert-container {
         grid-template-columns: 1fr 1fr;

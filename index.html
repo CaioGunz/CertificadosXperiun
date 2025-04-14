@@ -1,45 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificados Xperiun</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Meus Certificados</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- seu CSS externo -->
 </head>
 <body>
-    <h1>Meus Certificados Xperiun</h1>
 
-    <div class="cert-container">
-        <div class="cert-card">
-            <img src="/img/Badge - Fundamentos de Análise de Dados.png" alt="Fundamentos de Análise de Dados">
-            <a class="cred-button" href="https://app.xperiun.com/certificado/456tl2wu353mknva456qrmtrq" target="_blank">Ver Credencial</a>
-        </div>
-        <div class="cert-card">
-            <img src="/img/Badge - Power Query Essencial.png" alt="Power Query Essencial">
-            <a class="cred-button" href="https://app.xperiun.com/certificado/esdj4sgf2bpfwwk4l0hrux9rf" target="_blank">Ver Credencial</a>
-        </div>
-        <div class="cert-card">
-            <img src="/img/Badge - Modelagem de Dados Essencial.png" alt="Modelagem de Dados Essencial">
-            <a class="cred-button" href="https://app.xperiun.com/certificado/bd3zumg4x6z5et6kka9bokuwb" target="_blank">Ver Credencial</a>
-        </div>
-        <div class="cert-card">
-            <img src="/img/Badge - Linguagem DAX Essencial.png" alt="Linguagem DAX Essencial">
-            <a class="cred-button" href="https://app.xperiun.com/certificado/xvy33ngt8ieldjqm7tnm" target="_blank">Ver Credencial</a>
-        </div>
-        <div class="cert-card">
-            <img src="/img/Badge - Storytelling e Visualização de Dados 20.png" alt="Storytelling e Visualização de Dados">
-            <a class="cred-button" href="https://app.xperiun.com/certificado/mvmacxjtcqua64jd6mtn" target="_blank">Ver Credencial</a>
-        </div>
-        <div class="cert-card">
-            <img src="/img/Badge - Power BI Serviço Essencial.png" alt="Power BI Serviço Essencial">
-            <a class="cred-button" href="https://app.xperiun.com/certificado/axm1fwlfrdpoi695hooe" target="_blank">Ver Credencial</a>
-        </div>
-        <div class="cert-card">
-            <img src="/img/Badge - LinkedIn Champion.png" alt="LinkedIn Champion">
-            <a class="cred-button" href="https://app.xperiun.com/certificado/f78ayn7adjapw7m1fsek" target="_blank">Ver Credencial</a>
-        </div>
+  <h1>Meus Certificados</h1>
 
+  <!-- Filtros principais -->
+  <div class="filter-buttons">
+    <button onclick="filterCerts('all')">Todos</button>
+    <button onclick="selectSchool('xperiun')">Xperiun</button>
+    <button onclick="selectSchool('alura')">Alura</button>
+    <button onclick="selectSchool('udemy')">Udemy</button>
+  </div>
+
+  <!-- Subfiltros por tecnologia -->
+  <div class="sub-filter-buttons" id="subfilters" style="display: none;"></div>
+
+  <!-- Certificados -->
+  <div class="cert-container">
+    <!-- Xperiun -->
+    <div class="cert-card" data-category="xperiun powerbi">
+      <img src="/img/Badge - Fundamentos de Análise de Dados.png" alt="Fundamentos de Análise de Dados">
+      <a class="cred-button" href="https://app.xperiun.com/certificado/456tl2wu353mknva456qrmtrq" target="_blank">Ver Credencial</a>
     </div>
-</body>
 
+    <div class="cert-card" data-category="xperiun powerbi">
+      <img src="/img/Badge - Power Query Essencial.png" alt="Power Query Essencial">
+      <a class="cred-button" href="https://app.xperiun.com/certificado/esdj4sgf2bpfwwk4l0hrux9rf" target="_blank">Ver Credencial</a>
+    </div>
+
+    <div class="cert-card" data-category="xperiun powerbi">
+      <img src="/img/Badge - Modelagem de Dados Essencial.png" alt="Modelagem de Dados Essencial">
+      <a class="cred-button" href="https://app.xperiun.com/certificado/bd3zumg4x6z5et6kka9bokuwb" target="_blank">Ver Credencial</a>
+    </div>
+
+    <div class="cert-card" data-category="xperiun powerbi">
+      <img src="/img/Badge - Linguagem DAX Essencial.png" alt="Linguagem DAX Essencial">
+      <a class="cred-button" href="https://app.xperiun.com/certificado/xvy33ngt8ieldjqm7tnm" target="_blank">Ver Credencial</a>
+    </div>
+
+    <div class="cert-card" data-category="xperiun powerbi">
+      <img src="/img/Badge - Storytelling e Visualização de Dados 20.png" alt="Storytelling e Visualização de Dados">
+      <a class="cred-button" href="https://app.xperiun.com/certificado/mvmacxjtcqua64jd6mtn" target="_blank">Ver Credencial</a>
+    </div>
+
+    <div class="cert-card" data-category="xperiun powerbi">
+      <img src="/img/Badge - Power BI Serviço Essencial.png" alt="Power BI Serviço Essencial">
+      <a class="cred-button" href="https://app.xperiun.com/certificado/axm1fwlfrdpoi695hooe" target="_blank">Ver Credencial</a>
+    </div>
+
+    <div class="cert-card" data-category="xperiun linkedin">
+      <img src="/img/Badge - LinkedIn Champion.png" alt="LinkedIn Champion">
+      <a class="cred-button" href="https://app.xperiun.com/certificado/f78ayn7adjapw7m1fsek" target="_blank">Ver Credencial</a>
+    </div>
+
+    <!-- Alura -->
+    <!-- <div class="cert-card" data-category="alura python">...</div> -->
+
+    <!-- Udemy -->
+    <!-- <div class="cert-card" data-category="udemy excel">...</div> -->
+  </div>
+
+  <!-- Script de filtro -->
+  <script>
+    const subcategories = {
+      xperiun: ['powerbi', 'linkedin'],
+      alura: ['python', 'sql', 'bi'],
+      udemy: ['excel', 'powerbi', 'python']
+    };
+
+    let selectedSchool = null;
+
+    function selectSchool(school) {
+      selectedSchool = school;
+      filterCerts(school);
+      showSubFilters(school);
+    }
+
+    function showSubFilters(school) {
+      const container = document.getElementById('subfilters');
+      container.innerHTML = '';
+      container.style.display = 'flex';
+
+      subcategories[school].forEach(tech => {
+        const btn = document.createElement('button');
+        btn.innerText = tech.charAt(0).toUpperCase() + tech.slice(1);
+        btn.onclick = () => filterCerts(`${school} ${tech}`);
+        container.appendChild(btn);
+      });
+    }
+
+    function filterCerts(category) {
+        const cards = document.querySelectorAll('.cert-card');
+        const subfilterBox = document.getElementById('subfilters');
+      
+        cards.forEach(card => {
+          const categories = card.getAttribute('data-category');
+          if (category === 'all' || categories.includes(category)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      
+        // Se for "Todos", esconder subfiltros
+        if (category === 'all') {
+          subfilterBox.style.display = 'none';
+          subfilterBox.innerHTML = '';
+        }
+      }
+  </script>
+
+</body>
 </html>
